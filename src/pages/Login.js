@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { receiveEmail } from '../actions';
 import LoginContainer from './Login.styled';
 import imageWallet from '../images/wallet.svg';
+import colors from '../themes';
 
 class Login extends React.Component {
   constructor(props) {
@@ -52,7 +53,9 @@ class Login extends React.Component {
     const { email, password, isDisabled } = this.state;
     return (
       <LoginContainer>
-        <img src={ imageWallet } alt="Wallet" />
+        <div className="imageContainer">
+          <img src={ imageWallet } alt="Wallet" />
+        </div>
         <form>
           <input
             data-testid="email-input"
@@ -71,6 +74,7 @@ class Login extends React.Component {
             onChange={ this.handleChange }
           />
           <button
+            style={ isDisabled ? { backgroundColor: colors.buttonDisabledDefault } : {} }
             type="submit"
             value="Entrar"
             disabled={ isDisabled }
