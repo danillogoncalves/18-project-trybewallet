@@ -5,6 +5,7 @@ import { actionFetchCurrency, actionFetchExpenses } from '../actions/actionsAsys
 import { deleteExpense, editExpense } from '../actions';
 import Header from '../Component/Header';
 import TableExpenses from '../Component/TableExpenses';
+import WalletContainer from './Wallet.styled';
 
 const TAGS = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
 const METHODS = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
@@ -115,7 +116,7 @@ class Wallet extends React.Component {
     const { value, description, buttonEdit,
       currency, method, tag, isDisabled } = this.state;
     return (
-      <div>
+      <WalletContainer>
         <Header userEmail={ userEmail } totalExpenses={ this.totalExpenses } />
         <div>
           <label htmlFor="valueId">
@@ -209,7 +210,7 @@ class Wallet extends React.Component {
           editExpenseClick={ this.editExpenseClick }
           deleteExpenseClick={ this.deleteExpenseClick }
         />
-      </div>
+      </WalletContainer>
     );
   }
 }
